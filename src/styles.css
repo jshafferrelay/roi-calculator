@@ -1,3 +1,29 @@
+/* ── Theme tokens ── */
+:root, [data-theme="coast"] {
+  --panel-bg:            #0A3126;
+  --panel-text:          #F7F7F5;
+  --panel-sub:           rgba(247,247,245,0.55);
+  --panel-muted:         rgba(247,247,245,0.45);
+  --panel-track:         rgba(247,247,245,0.12);
+  --panel-fill:          #D9F560;
+  --pill-inner:          rgba(221,242,204,0.55);
+  --pill-mid:            rgba(221,242,204,0.18);
+  --pill-outer:          rgba(221,242,204,0);
+  --swatch-coast-ring:   rgba(247,247,245,0.6);
+}
+
+[data-theme="glide"] {
+  --panel-bg:            #000000;
+  --panel-text:          #F7F7F5;
+  --panel-sub:           rgba(247,247,245,0.55);
+  --panel-muted:         rgba(247,247,245,0.35);
+  --panel-track:         rgba(247,247,245,0.12);
+  --panel-fill:          #D9F560;
+  --pill-inner:          rgba(120,97,255,0.65);
+  --pill-mid:            rgba(120,97,255,0.2);
+  --pill-outer:          rgba(120,97,255,0);
+}
+
 /* ── Reset & base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,17 +45,56 @@ body {
 .left-panel {
   width: 42%;
   min-width: 280px;
-  background: #0A3126;
+  background: var(--panel-bg);
   display: flex;
   flex-direction: column;
-  padding: 48px 40px;
+  padding: 40px 40px 40px 28px;
   position: sticky;
   top: 0;
   height: 100vh;
   flex-shrink: 0;
+  overflow: hidden;
+  transition: background 0.5s ease;
+}
+
+/* ── Gradient pill shapes ── */
+.panel-pills {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pill {
+  position: absolute;
+  border-radius: 100px;
+  transform: rotate(45deg);
+  background: radial-gradient(ellipse at center,
+    var(--pill-inner) 0%,
+    var(--pill-mid)   45%,
+    var(--pill-outer) 75%
+  );
+  transition: background 0.5s ease;
+}
+
+.pill-1 {
+  width: 110px;
+  height: 300px;
+  bottom: 8%;
+  right: 4%;
+}
+
+.pill-2 {
+  width: 110px;
+  height: 300px;
+  bottom: 2%;
+  right: 18%;
+  opacity: 0.7;
 }
 
 .left-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -43,9 +108,12 @@ body {
 }
 
 .logo-img {
-  height: 32px;
+  height: auto;
   width: auto;
+  max-height: 42px;
+  max-width: 40%;
   display: block;
+  object-fit: contain;
 }
 
 .left-copy-block {
@@ -56,7 +124,7 @@ body {
 .left-headline {
   font-size: clamp(20px, 2.4vw, 28px);
   font-weight: 500;
-  color: #F7F7F5;
+  color: var(--panel-text);
   line-height: 1.35;
   white-space: pre-line;
 }
@@ -64,7 +132,7 @@ body {
 .left-sub {
   font-size: 14px;
   font-weight: 300;
-  color: rgba(247,247,245,0.55);
+  color: var(--panel-sub);
   line-height: 1.65;
   margin-top: 14px;
 }
@@ -79,23 +147,57 @@ body {
   justify-content: space-between;
   font-size: 12px;
   font-weight: 300;
-  color: rgba(247,247,245,0.45);
+  color: var(--panel-muted);
   margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
 
 .progress-track {
   height: 2px;
-  background: rgba(247,247,245,0.12);
+  background: var(--panel-track);
   border-radius: 1px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: #D9F560;
+  background: var(--panel-fill);
   border-radius: 1px;
   transition: width 0.4s ease;
+}
+
+/* ── Theme toggle ── */
+.theme-toggle {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.theme-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.theme-swatch:hover { transform: scale(1.15); }
+
+.theme-swatch-coast {
+  background: #0A3126;
+  box-shadow: 0 0 0 1px rgba(247,247,245,0.3);
+}
+
+.theme-swatch-glide {
+  background: #7861FF;
+  box-shadow: 0 0 0 1px rgba(247,247,245,0.3);
+}
+
+.theme-swatch.active {
+  border-color: #D9F560;
+  box-shadow: none;
 }
 
 /* ── RIGHT PANEL ── */

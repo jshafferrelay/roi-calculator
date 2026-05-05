@@ -14,7 +14,7 @@ const LEFT_COPY = [
   { headline: 'The difference between a smooth close and a chaotic one\nis usually process — not people.', sub: null },
   { headline: 'Single points of failure are the silent killer of draw operations.', sub: null },
   { headline: 'Every item on this list compounds.\nNone of them are unavoidable.', sub: null },
-  { headline: 'Manual draw assembly is the most expensive task\nyour team does on autopilot.', sub: null },
+  { headline: 'Manual draw assembly is the most expensive task your team does on autopilot.', sub: null },
   { headline: 'Invoice volume is where exposure hides.\nMost teams never count it.', sub: null },
 ]
 
@@ -29,6 +29,7 @@ export default function App() {
   const [animKey, setAnimKey] = useState(0)
   const [painNoneShown, setPainNoneShown] = useState(false)
   const [showIntro, setShowIntro] = useState(true)
+  const [theme, setTheme] = useState('coast')
 
   const currentQ = QUESTIONS[step]
   const leftCopy = showIntro ? LEFT_COPY[0] : (LEFT_COPY[step + 1] || LEFT_COPY[0])
@@ -110,8 +111,12 @@ export default function App() {
   const showReport = step === TOTAL_STEPS
 
   return (
-    <div className="shell">
+    <div className="shell" data-theme={theme}>
       <div className="left-panel">
+        <div className="panel-pills" aria-hidden="true">
+          <div className="pill pill-1" />
+          <div className="pill pill-2" />
+        </div>
         <div className="left-inner">
           <div className="logo-block">
             <img src="/relay_primarylogo02.png" alt="Relay" className="logo-img" />
@@ -138,6 +143,19 @@ export default function App() {
               <div className="progress-label"><span>Report ready</span><span>100%</span></div>
             )}
           </div>
+
+          <div className="theme-toggle">
+            <button
+              className={`theme-swatch theme-swatch-coast${theme === 'coast' ? ' active' : ''}`}
+              onClick={() => setTheme('coast')}
+              title="Coast theme"
+            />
+            <button
+              className={`theme-swatch theme-swatch-glide${theme === 'glide' ? ' active' : ''}`}
+              onClick={() => setTheme('glide')}
+              title="Glide theme"
+            />
+          </div>
         </div>
       </div>
 
@@ -145,9 +163,9 @@ export default function App() {
         {showIntro && (
           <div className="question-wrap" key="intro">
             <div className="q-number">Draw Readiness Diagnostic</div>
-            <h2 className="q-text">Two minutes. Real numbers about your draw process.</h2>
+            <h2 className="q-text">Take 2 minutes to see how much your draws are costing you.</h2>
             <p className="q-hint">
-              Answer 7 questions and we'll calculate your estimated time cost, delay exposure,
+              We'll calculate your estimated time cost, delayed funding exposure,
               and show you exactly where your process is leaking money.
             </p>
             <div className="nav-row">
@@ -216,7 +234,7 @@ export default function App() {
                     <div className="metric-sub">{roi.monthlyHours} hrs × $50/hr</div>
                   </div>
                   <div className="preview-metric accent-glide">
-                    <div className="metric-label">Delay exposure</div>
+                    <div className="metric-label">Delayed funding cost</div>
                     <div className="metric-value">${fmt(roi.monthlyDelayExposure)}</div>
                     <div className="metric-sub">5-day avg across {roi.numProperties} properties</div>
                   </div>
@@ -304,7 +322,7 @@ export default function App() {
                     <div className="metric-card-sub">{roi.monthlyHours} hrs × $50/hr blended AM cost</div>
                   </div>
                   <div className="metric-card">
-                    <div className="metric-card-label">Delay exposure</div>
+                    <div className="metric-card-label">Delayed funding cost</div>
                     <div className="metric-card-value">${fmt(roi.monthlyDelayExposure)}</div>
                     <div className="metric-card-sub">5-day avg delay across {roi.numProperties} properties</div>
                   </div>
