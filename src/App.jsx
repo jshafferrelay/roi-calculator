@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {
   QUESTIONS, PAIN_FLAGS, DEDICATED_FLAGS,
-  calcROI, fmt, validateEmail, sendLead
+  calcROI, fmt, validateEmail
 } from './data.js'
 import './styles.css'
 
@@ -98,7 +98,13 @@ export default function App() {
     setEmailError('')
     setSending(true)
     const roi = calcROI(answers)
-    await sendLead(answers, email, roi)
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ answers, email, roi }),
+      })
+    } catch (_) {}
     setSending(false)
     setSubmitted(true)
     setTimeout(() => setReportVisible(true), 100)
