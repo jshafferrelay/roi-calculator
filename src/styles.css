@@ -824,7 +824,7 @@ body {
   .left-panel {
     width: 100%;
     height: auto;
-    position: static;
+    position: relative;
     padding: 24px 24px 20px;
     flex-direction: row;
     align-items: center;
@@ -845,6 +845,23 @@ body {
 
   .left-copy-block { display: none; }
 
+  .pill-1 {
+    width: 44px;
+    height: 120px;
+    bottom: -28px;
+    right: 52px;
+  }
+
+  .pill-2 {
+    width: 44px;
+    height: 120px;
+    bottom: -44px;
+    right: 8px;
+    opacity: 0.7;
+  }
+
+  .theme-toggle { margin-top: 0; }
+
   .progress-block {
     margin-top: 0;
     padding-top: 0;
@@ -860,9 +877,8 @@ body {
 
   .question-wrap {
     min-height: calc(100vh - 80px);
-    padding: 32px 24px;
-    justify-content: flex-start;
-    padding-top: 36px;
+    padding: 32px 24px 40px;
+    justify-content: space-between;
   }
 
   .q-text { font-size: 18px; }
