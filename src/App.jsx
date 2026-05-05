@@ -8,10 +8,10 @@ import './styles.css'
 const TOTAL_STEPS = QUESTIONS.length
 
 const LEFT_COPY = [
-  { headline: 'Is your draw process working for you —\nor against you?', sub: 'A 2-minute diagnostic built for operators who\'ve actually run draws.' },
+  { headline: 'Is your draw process working for you or against you?', sub: 'A 2-minute diagnostic built for operators who\'ve actually run draws.' },
   { headline: 'How we frame your results depends on your seat at the table.', sub: null },
-  { headline: 'Portfolio size shapes everything — your exposure, your time cost, your risk.', sub: null },
-  { headline: 'Most teams think their process is fine.\nUntil draw day hits.', sub: null },
+  { headline: 'Every week a draw sits unsubmitted is a week your cash isn\'t moving.\nPortfolio size determines how much that costs you.', sub: null },
+  { headline: 'The difference between a smooth close and a chaotic one\nis usually process — not people.', sub: null },
   { headline: 'Single points of failure are the silent killer of draw operations.', sub: null },
   { headline: 'Every item on this list compounds.\nNone of them are unavoidable.', sub: null },
   { headline: 'Manual draw assembly is the most expensive task\nyour team does on autopilot.', sub: null },
@@ -28,12 +28,13 @@ export default function App() {
   const [reportVisible, setReportVisible] = useState(false)
   const [animKey, setAnimKey] = useState(0)
   const [painNoneShown, setPainNoneShown] = useState(false)
+  const [showIntro, setShowIntro] = useState(true)
 
   const currentQ = QUESTIONS[step]
-  const leftCopy = LEFT_COPY[step] || LEFT_COPY[0]
+  const leftCopy = showIntro ? LEFT_COPY[0] : (LEFT_COPY[step + 1] || LEFT_COPY[0])
   const isMulti = currentQ?.type === 'multi'
 
-  const progress = step / TOTAL_STEPS
+  const progress = showIntro ? 0 : step / TOTAL_STEPS
   const progressPct = Math.round(progress * 100)
 
   function selectOption(val) {
@@ -113,8 +114,7 @@ export default function App() {
       <div className="left-panel">
         <div className="left-inner">
           <div className="logo-block">
-            <span className="logo-text">RELAY</span>
-            <span className="logo-tag">Accelerated Accuracy</span>
+            <img src="/relay_primarylogo02.png" alt="Relay" className="logo-img" />
           </div>
 
           <div className="left-copy-block" key={`copy-${step}`}>
@@ -123,10 +123,10 @@ export default function App() {
           </div>
 
           <div className="progress-block">
-            {step < TOTAL_STEPS && (
+            {(showIntro || step < TOTAL_STEPS) && (
               <>
                 <div className="progress-label">
-                  <span>{step === 0 ? 'Getting started' : `Question ${step} of ${TOTAL_STEPS}`}</span>
+                  <span>{showIntro ? 'Getting started' : `Question ${step + 1} of ${TOTAL_STEPS}`}</span>
                   <span>{progressPct}%</span>
                 </div>
                 <div className="progress-track">
@@ -134,7 +134,7 @@ export default function App() {
                 </div>
               </>
             )}
-            {step === TOTAL_STEPS && (
+            {!showIntro && step === TOTAL_STEPS && (
               <div className="progress-label"><span>Report ready</span><span>100%</span></div>
             )}
           </div>
@@ -142,7 +142,24 @@ export default function App() {
       </div>
 
       <div className="right-panel">
-        {!showReport && (
+        {showIntro && (
+          <div className="question-wrap" key="intro">
+            <div className="q-number">Draw Readiness Diagnostic</div>
+            <h2 className="q-text">Two minutes. Real numbers about your draw process.</h2>
+            <p className="q-hint">
+              Answer 7 questions and we'll calculate your estimated time cost, delay exposure,
+              and show you exactly where your process is leaking money.
+            </p>
+            <div className="nav-row">
+              <span />
+              <button className="next-btn active" onClick={() => { setShowIntro(false); setAnimKey(k => k + 1) }}>
+                Get started →
+              </button>
+            </div>
+          </div>
+        )}
+
+        {!showIntro && !showReport && (
           <div className="question-wrap" key={`q-${animKey}`}>
             <div className="q-number">Question {step + 1} of {TOTAL_STEPS}</div>
             <h2 className="q-text">{currentQ.question}</h2>
@@ -170,7 +187,7 @@ export default function App() {
             <div className="nav-row">
               {step > 0
                 ? <button className="back-btn" onClick={back}>← Back</button>
-                : <span />
+                : <button className="back-btn" onClick={() => setShowIntro(true)}>← Back</button>
               }
               <button
                 className={`next-btn${canAdvance() ? ' active' : ''}`}
@@ -187,24 +204,23 @@ export default function App() {
           <div className="report-wrap">
             {!submitted && (
               <div className="email-gate" key="gate">
-                <div className="gate-label">Almost there</div>
                 <h2 className="gate-headline">Your numbers are in.</h2>
                 <p className="gate-sub">
                   Based on your answers, here's your estimated monthly exposure.
                 </p>
 
                 <div className="preview-metrics">
-                  <div className="preview-metric">
+                  <div className="preview-metric accent-coast">
                     <div className="metric-label">Monthly draw labor</div>
                     <div className="metric-value">${fmt(roi.monthlyLaborCost)}</div>
                     <div className="metric-sub">{roi.monthlyHours} hrs × $50/hr</div>
                   </div>
-                  <div className="preview-metric">
+                  <div className="preview-metric accent-glide">
                     <div className="metric-label">Delay exposure</div>
                     <div className="metric-value">${fmt(roi.monthlyDelayExposure)}</div>
                     <div className="metric-sub">5-day avg across {roi.numProperties} properties</div>
                   </div>
-                  <div className="preview-metric">
+                  <div className="preview-metric accent-surge">
                     <div className="metric-label">Duplicate invoice risk</div>
                     <div className="metric-value">${fmt(roi.duplicateExposure)}</div>
                     <div className="metric-sub">~{roi.duplicateCount} duplicates/mo at $5K avg</div>

@@ -42,7 +42,7 @@ export const QUESTIONS = [
       { value: 'one', label: 'Yes — one person owns it' },
       { value: 'shared', label: "It's shared across a few people" },
       { value: 'adhoc', label: 'It falls to whoever has time' },
-      { value: 'me', label: "No — it's typically me" },
+      { value: 'me', label: "Each AM handles their own properties' draws" },
     ],
   },
   {
