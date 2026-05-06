@@ -174,8 +174,7 @@ export default function App() {
               We'll calculate your estimated time cost, delayed funding exposure,
               and show you exactly where your process is leaking money.
             </p>
-            <div className="nav-row">
-              <span />
+            <div className="nav-row nav-row-left">
               <button className="next-btn active" onClick={() => { setShowIntro(false); setAnimKey(k => k + 1) }}>
                 Get started →
               </button>

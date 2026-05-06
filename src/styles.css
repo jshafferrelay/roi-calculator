@@ -319,6 +319,9 @@ body {
   margin-top: 32px;
   max-width: 540px;
 }
+.nav-row-left {
+  justify-content: flex-start;
+}
 
 .back-btn {
   font-family: 'Urbanist', sans-serif;
