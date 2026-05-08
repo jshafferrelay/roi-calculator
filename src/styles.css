@@ -9,7 +9,7 @@
   --pill-inner:          rgba(221,242,204,0.55);
   --pill-mid:            rgba(221,242,204,0.18);
   --pill-outer:          rgba(221,242,204,0);
-  --pill-color:          rgba(217,245,96,0.72);
+  --pill-color:          rgba(217,245,96,0.88);
   --swatch-coast-ring:   rgba(247,247,245,0.6);
 }
 
@@ -23,7 +23,7 @@
   --pill-inner:          rgba(120,97,255,0.65);
   --pill-mid:            rgba(120,97,255,0.2);
   --pill-outer:          rgba(120,97,255,0);
-  --pill-color:          rgba(120,97,255,0.8);
+  --pill-color:          rgba(120,97,255,0.92);
 }
 
 /* ── Reset & base ── */
@@ -76,35 +76,21 @@ body {
   transition: background 0.5s ease;
 }
 
-/* Comet head at upper-right, tail fades to lower-left */
+/* Comet head at lower-left end */
 .pill-1, .pill-3 {
-  background: linear-gradient(to bottom, transparent 0%, var(--pill-color) 35%, var(--pill-color) 100%);
+  background: linear-gradient(to bottom, transparent 0%, var(--pill-color) 22%, var(--pill-color) 100%);
 }
 
-/* Comet head at lower-left, tail fades to upper-right */
+/* Comet head at upper-right end */
 .pill-2, .pill-4 {
-  background: linear-gradient(to top, transparent 0%, var(--pill-color) 35%, var(--pill-color) 100%);
+  background: linear-gradient(to top, transparent 0%, var(--pill-color) 22%, var(--pill-color) 100%);
 }
 
-.pill-1 {
-  bottom: 32%;
-  right: 3%;
-}
-
-.pill-2 {
-  bottom: 21%;
-  right: 14%;
-}
-
-.pill-3 {
-  bottom: 10%;
-  right: 25%;
-}
-
-.pill-4 {
-  bottom: -1%;
-  right: 36%;
-}
+/* Side by side — each step: right -42px, bottom +42px (short-axis direction) */
+.pill-1 { right: 123px; bottom: 17px; }
+.pill-2 { right: 81px;  bottom: 59px; }
+.pill-3 { right: 39px;  bottom: 101px; }
+.pill-4 { right: -3px;  bottom: 143px; }
 
 .left-inner {
   position: relative;
