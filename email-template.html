@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Your Relay Draw Readiness Report</title>
+</head>
+<body style="margin:0;padding:0;background:#F0F0EE;font-family:'Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;">
+
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#F0F0EE;">
+  <tr>
+    <td align="center" style="padding:40px 16px;">
+      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+        <!-- ── HEADER ── -->
+        <tr>
+          <td style="background:#000000;border-radius:12px 12px 0 0;padding:36px 40px 32px;">
+            <a href="https://joinrelay.ai" style="display:block;margin-bottom:28px;">
+              <img src="https://relay-diagnostic-src.vercel.app/relay_primarylogo02.png" alt="Relay" height="28" style="display:block;border:0;">
+            </a>
+            <table cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+              <tr>
+                <td style="background:rgba(255,255,255,0.1);border-radius:100px;padding:4px 14px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(247,247,245,0.6);">
+                  Draw Readiness Report
+                </td>
+              </tr>
+            </table>
+            <h1 style="margin:0;font-size:22px;font-weight:500;color:#F7F7F5;line-height:1.35;">
+              Here's what your draw process is actually costing you.
+            </h1>
+          </td>
+        </tr>
+
+        <!-- ── METRICS ── -->
+        <tr>
+          <td style="background:#ffffff;padding:32px 40px 24px;">
+
+            <!-- Metric 1: Labor -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+              <tr>
+                <td style="background:#F7F7F5;border-radius:8px;border-left:3px solid #0A3126;padding:18px 20px;">
+                  <div style="font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888780;margin-bottom:6px;">Monthly draw labor</div>
+                  <div style="font-size:30px;font-weight:700;color:#0A3126;line-height:1;margin-bottom:5px;">{{monthly_labor_cost}}</div>
+                  <div style="font-size:12px;color:#5F5E5A;">{{monthly_hours}} hrs/mo tied up in draw assembly</div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Metric 2: Delay -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+              <tr>
+                <td style="background:#F7F7F5;border-radius:8px;border-left:3px solid #7861FF;padding:18px 20px;">
+                  <div style="font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888780;margin-bottom:6px;">Delayed funding cost</div>
+                  <div style="font-size:30px;font-weight:700;color:#7861FF;line-height:1;margin-bottom:5px;">{{delay_exposure}}</div>
+                  <div style="font-size:12px;color:#5F5E5A;">21-day avg delay across {{num_properties}} properties</div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Metric 3: Duplicate -->
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="background:#F7F7F5;border-radius:8px;border-left:3px solid #D9F560;padding:18px 20px;">
+                  <div style="font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888780;margin-bottom:6px;">Overbilling &amp; duplicate invoice risk</div>
+                  <div style="font-size:30px;font-weight:700;color:#2C2C2A;line-height:1;margin-bottom:5px;">{{duplicate_exposure}}</div>
+                  <div style="font-size:12px;color:#5F5E5A;">~{{duplicate_count}} incidents/mo at $5K avg</div>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- ── PROCESS GAPS (omit this tr if no pain points) ── -->
+        {{pain_section}}
+
+        <!-- ── CTA ── -->
+        <tr>
+          <td style="background:#0A3126;padding:36px 40px;text-align:center;">
+            <h2 style="margin:0 0 10px;font-size:18px;font-weight:500;color:#F7F7F5;line-height:1.4;">
+              Relay builds your draw packages for you.
+            </h2>
+            <p style="margin:0 0 24px;font-size:13px;color:rgba(247,247,245,0.6);line-height:1.65;max-width:460px;margin-left:auto;margin-right:auto;">
+              Relay uses AI to build your draw packages for you. Upload invoices across your portfolio — Relay identifies the property, allocates to budget, flags issues, and tells you when you're ready to submit.
+            </p>
+            <a href="mailto:hello@joinrelay.ai" style="display:inline-block;background:#D9F560;color:#0A3126;font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;padding:14px 36px;border-radius:8px;">
+              Book a Demo
+            </a>
+          </td>
+        </tr>
+
+        <!-- ── DISCLAIMER ── -->
+        <tr>
+          <td style="background:#ffffff;border-radius:0 0 12px 12px;padding:20px 40px;border-top:1px solid #EEEEE8;">
+            <p style="margin:0;font-size:11px;color:#AEADA6;line-height:1.6;">
+              * Estimates based on industry averages: $50/hr blended AM cost, 21-day avg draw delay on a $15M loan at 7% annual interest, 3% overbilling/duplicate rate, $5,000 avg invoice value. Actual figures vary by portfolio size and loan terms.
+            </p>
+          </td>
+        </tr>
+
+        <!-- ── FOOTER ── -->
+        <tr>
+          <td style="padding:24px 40px;text-align:center;">
+            <a href="https://joinrelay.ai" style="display:inline-block;margin-bottom:14px;">
+              <img src="https://relay-diagnostic-src.vercel.app/relay_primarylogo02.png" alt="Relay" height="20" style="display:block;border:0;opacity:0.4;">
+            </a>
+            <p style="margin:0 0 6px;font-size:12px;color:#AEADA6;">
+              <a href="mailto:info@joinrelay.ai" style="color:#AEADA6;text-decoration:none;">info@joinrelay.ai</a>
+            </p>
+            <p style="margin:0;font-size:11px;color:#C8C7C0;">
+              &copy; 2026 Relay. All rights reserved.
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
+</pre>
+
+<!--
+=======================================================================
+PAIN SECTION — build this HTML server-side and pass as {{pain_section}}
+Only include if the user selected any pain points.
+
+<tr>
+  <td style="background:#ffffff;padding:0 40px 32px;">
+    <div style="font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888780;margin-bottom:14px;">Process gaps flagged</div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:8px;overflow:hidden;border:1px solid #E8E7E2;">
+      <tr>
+        <td width="50%" style="background:#0A3126;padding:10px 16px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(247,247,245,0.6);">Today</td>
+        <td width="50%" style="background:#0A3126;padding:10px 16px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(247,247,245,0.6);">With Relay</td>
+      </tr>
+      [REPEAT PER PAIN POINT:]
+      <tr>
+        <td style="padding:13px 16px;font-size:13px;color:#2C2C2A;border-bottom:1px solid #E8E7E2;vertical-align:top;">PAIN_LABEL</td>
+        <td style="padding:13px 16px;font-size:13px;color:#0A3126;border-bottom:1px solid #E8E7E2;background:#DDF2CC;vertical-align:top;">RELAY_COPY</td>
+      </tr>
+    </table>
+  </td>
+</tr>
+=======================================================================
+-->
