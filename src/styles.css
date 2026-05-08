@@ -87,23 +87,23 @@ body {
 }
 
 .pill-1 {
-  right: 45px;
-  bottom: 185px;
+  right: 30px;
+  bottom: 165px;
 }
 
 .pill-2 {
-  right: -33px;
-  bottom: 185px;
+  right: -48px;
+  bottom: 165px;
 }
 
 .pill-3 {
-  right: -21px;
-  bottom: 105px;
+  right: -36px;
+  bottom: 85px;
 }
 
 .pill-4 {
-  right: -88px;
-  bottom: 105px;
+  right: -103px;
+  bottom: 85px;
 }
 
 .left-inner {
@@ -927,19 +927,19 @@ body {
   .left-copy-block { display: none; }
 
   .pill-1 {
-    width: 120px;
-    height: 32px;
+    width: 90px;
+    height: 28px;
     transform: rotate(140.48deg);
-    bottom: 8px;
-    right: -20px;
+    bottom: 6px;
+    right: -14px;
   }
 
   .pill-2 {
-    width: 120px;
-    height: 32px;
+    width: 90px;
+    height: 28px;
     transform: rotate(-39.52deg);
-    bottom: 30px;
-    right: 0px;
+    bottom: 22px;
+    right: 2px;
   }
 
   .pill-3 { display: none; }
