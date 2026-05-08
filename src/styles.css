@@ -929,29 +929,29 @@ body {
   .pill-1 {
     width: 22px;
     height: 100px;
-    bottom: 20px;
-    right: 12px;
+    bottom: -14px;
+    right: -8px;
   }
 
   .pill-2 {
     width: 22px;
     height: 100px;
     bottom: 8px;
-    right: 40px;
+    right: 14px;
   }
 
   .pill-3 {
     width: 22px;
     height: 100px;
-    bottom: -8px;
-    right: -4px;
+    bottom: 30px;
+    right: 36px;
   }
 
   .pill-4 {
     width: 22px;
     height: 100px;
-    bottom: -20px;
-    right: 24px;
+    bottom: 52px;
+    right: 58px;
   }
 
   .theme-toggle { margin-top: 0; }
