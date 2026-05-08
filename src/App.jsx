@@ -29,7 +29,7 @@ export default function App() {
   const [animKey, setAnimKey] = useState(0)
   const [painNoneShown, setPainNoneShown] = useState(false)
   const [showIntro, setShowIntro] = useState(true)
-  const [theme, setTheme] = useState('coast')
+  const [theme, setTheme] = useState('glide')
 
   const currentQ = QUESTIONS[step]
   const leftCopy = showIntro ? LEFT_COPY[0] : (LEFT_COPY[step + 1] || LEFT_COPY[0])
