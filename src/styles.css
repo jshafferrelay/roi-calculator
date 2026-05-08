@@ -71,7 +71,7 @@ body {
 
 .pill {
   position: absolute;
-  width: 276px;
+  width: 220px;
   height: 52px;
   border-radius: 100px;
   background: linear-gradient(89.12deg, var(--pill-color) 12.37%, var(--pill-color-0) 46.99%);
@@ -87,22 +87,22 @@ body {
 }
 
 .pill-1 {
-  bottom: 32%;
-  right: -6%;
+  bottom: 26%;
+  right: -4%;
 }
 
 .pill-2 {
-  bottom: 22%;
+  bottom: 18%;
   right: 4%;
 }
 
 .pill-3 {
-  bottom: 8%;
-  right: -12%;
+  bottom: 10%;
+  right: -8%;
 }
 
 .pill-4 {
-  bottom: -2%;
+  bottom: 2%;
   right: 2%;
 }
 
@@ -927,7 +927,7 @@ body {
   .left-copy-block { display: none; }
 
   .pill-1 {
-    width: 160px;
+    width: 120px;
     height: 32px;
     transform: rotate(140.48deg);
     bottom: 0px;
@@ -935,7 +935,7 @@ body {
   }
 
   .pill-2 {
-    width: 160px;
+    width: 120px;
     height: 32px;
     transform: rotate(-39.52deg);
     bottom: 10px;
