@@ -747,6 +747,49 @@ body {
 
 .flag-copy { color: #5F5E5A; }
 
+.flags-grid {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #D3D1C7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flags-grid-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 16px;
+  background: #F0EFE9;
+  color: #8A8880;
+}
+
+.flags-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid #E8E6DF;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.flags-col-today {
+  padding: 14px 16px;
+  color: #2C2C2A;
+  font-weight: 500;
+  background: #fff;
+  border-right: 1px solid #E8E6DF;
+}
+
+.flags-col-relay {
+  padding: 14px 16px;
+  color: #0A3126;
+  background: rgba(221, 242, 204, 0.35);
+}
+
 .report-cta {
   background: #0A3126;
   border-radius: 12px;

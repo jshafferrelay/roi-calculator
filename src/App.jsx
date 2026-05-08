@@ -10,12 +10,12 @@ const TOTAL_STEPS = QUESTIONS.length
 const LEFT_COPY = [
   { headline: 'Is your draw process working for you or against you?', sub: 'A 2-minute diagnostic built for operators who\'ve actually run draws.' },
   { headline: 'How we frame your results depends on your seat at the table.', sub: null },
-  { headline: 'Every week a draw sits unsubmitted is a week your cash isn\'t moving.\nPortfolio size determines how much that costs you.', sub: null },
-  { headline: 'The difference between a smooth close and a chaotic one\nis usually process — not people.', sub: null },
-  { headline: 'Single points of failure are the silent killer of draw operations.', sub: null },
-  { headline: 'Every item on this list compounds.\nNone of them are unavoidable.', sub: null },
-  { headline: 'Manual draw assembly is the most expensive task your team does on autopilot.', sub: null },
-  { headline: 'Invoice volume is where exposure hides.\nMost teams never count it.', sub: null },
+  { headline: 'On a $15M loan, every day without funding costs $2,877 in interest carry.\nPortfolio size determines how much that adds up to.', sub: null },
+  { headline: 'Relay customers cut draw cycles from 22 days to 9 days.\nThe difference is process, not people.', sub: null },
+  { headline: 'One point of failure is one missed lien waiver away from a frozen close.', sub: null },
+  { headline: 'GCs routinely bill ahead of completion.\nMost teams don\'t have the data to catch it.', sub: null },
+  { headline: 'One AM can manage 11 active projects instead of 5 — without adding headcount.', sub: null },
+  { headline: 'At 3%, 500 invoices/month is 15 incidents.\nAt $5K avg, that\'s $75K sitting in your blind spot.', sub: null },
 ]
 
 export default function App() {
@@ -341,14 +341,15 @@ export default function App() {
                 {painItems.length > 0 && (
                   <div className="report-section">
                     <div className="section-label">Process gaps flagged</div>
-                    <div className="flags-list">
+                    <div className="flags-grid">
+                      <div className="flags-grid-header">
+                        <span>Today</span>
+                        <span>With Relay</span>
+                      </div>
                       {painItems.map(p => (
-                        <div className="flag-item" key={p}>
-                          <div className="flag-dot" />
-                          <div>
-                            <span className="flag-title">{PAIN_FLAGS[p]?.label}: </span>
-                            <span className="flag-copy">{PAIN_FLAGS[p]?.copy}</span>
-                          </div>
+                        <div className="flags-grid-row" key={p}>
+                          <div className="flags-col-today">{PAIN_FLAGS[p]?.label}</div>
+                          <div className="flags-col-relay">{PAIN_FLAGS[p]?.copy}</div>
                         </div>
                       ))}
                     </div>
