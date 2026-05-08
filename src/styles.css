@@ -9,6 +9,7 @@
   --pill-inner:          rgba(221,242,204,0.55);
   --pill-mid:            rgba(221,242,204,0.18);
   --pill-outer:          rgba(221,242,204,0);
+  --pill-color:          rgba(217,245,96,0.72);
   --swatch-coast-ring:   rgba(247,247,245,0.6);
 }
 
@@ -22,6 +23,7 @@
   --pill-inner:          rgba(120,97,255,0.65);
   --pill-mid:            rgba(120,97,255,0.2);
   --pill-outer:          rgba(120,97,255,0);
+  --pill-color:          rgba(120,97,255,0.8);
 }
 
 /* ── Reset & base ── */
@@ -67,29 +69,41 @@ body {
 
 .pill {
   position: absolute;
+  width: 52px;
+  height: 260px;
   border-radius: 100px;
   transform: rotate(45deg);
-  background: radial-gradient(ellipse at center,
-    var(--pill-inner) 0%,
-    var(--pill-mid)   45%,
-    var(--pill-outer) 75%
-  );
   transition: background 0.5s ease;
 }
 
+/* Comet head at upper-right, tail fades to lower-left */
+.pill-1, .pill-3 {
+  background: linear-gradient(to bottom, transparent 0%, var(--pill-color) 60%, var(--pill-color) 100%);
+}
+
+/* Comet head at lower-left, tail fades to upper-right */
+.pill-2, .pill-4 {
+  background: linear-gradient(to top, transparent 0%, var(--pill-color) 60%, var(--pill-color) 100%);
+}
+
 .pill-1 {
-  width: 110px;
-  height: 300px;
-  bottom: 8%;
-  right: 4%;
+  bottom: 22%;
+  right: 6%;
 }
 
 .pill-2 {
-  width: 110px;
-  height: 300px;
-  bottom: 2%;
-  right: 18%;
-  opacity: 0.7;
+  bottom: 14%;
+  right: 20%;
+}
+
+.pill-3 {
+  bottom: 8%;
+  right: -4%;
+}
+
+.pill-4 {
+  bottom: 0%;
+  right: 10%;
 }
 
 .left-inner {
@@ -913,18 +927,31 @@ body {
   .left-copy-block { display: none; }
 
   .pill-1 {
-    width: 44px;
-    height: 120px;
-    bottom: -28px;
-    right: 52px;
+    width: 22px;
+    height: 100px;
+    bottom: 20px;
+    right: 12px;
   }
 
   .pill-2 {
-    width: 44px;
-    height: 120px;
-    bottom: -44px;
-    right: 8px;
-    opacity: 0.7;
+    width: 22px;
+    height: 100px;
+    bottom: 8px;
+    right: 40px;
+  }
+
+  .pill-3 {
+    width: 22px;
+    height: 100px;
+    bottom: -8px;
+    right: -4px;
+  }
+
+  .pill-4 {
+    width: 22px;
+    height: 100px;
+    bottom: -20px;
+    right: 24px;
   }
 
   .theme-toggle { margin-top: 0; }

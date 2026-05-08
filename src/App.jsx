@@ -121,6 +121,8 @@ export default function App() {
         <div className="panel-pills" aria-hidden="true">
           <div className="pill pill-1" />
           <div className="pill pill-2" />
+          <div className="pill pill-3" />
+          <div className="pill pill-4" />
         </div>
         <div className="left-inner">
           <div className="logo-block">
@@ -367,8 +369,7 @@ export default function App() {
                       : 'Upload invoices across your portfolio. Relay identifies the property, allocates to budget, flags issues, and tells you when you\'re ready to submit.'}
                   </p>
                   <div className="cta-buttons">
-                    <a href="mailto:hello@joinrelay.ai" className="cta-primary">Book a Demo →</a>
-                    <a href="https://joinrelay.ai" className="cta-secondary">joinrelay.ai</a>
+                    <a href="mailto:hello@joinrelay.ai" className="cta-primary">Book a Demo</a>
                   </div>
                 </div>
 
