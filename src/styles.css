@@ -87,22 +87,22 @@ body {
 }
 
 .pill-1 {
-  left: 89px;
+  right: 45px;
   bottom: 185px;
 }
 
 .pill-2 {
-  left: 167px;
+  right: -33px;
   bottom: 185px;
 }
 
 .pill-3 {
-  left: 155px;
+  right: -21px;
   bottom: 105px;
 }
 
 .pill-4 {
-  left: 222px;
+  right: -88px;
   bottom: 105px;
 }
 
@@ -930,16 +930,16 @@ body {
     width: 120px;
     height: 32px;
     transform: rotate(140.48deg);
-    bottom: 0px;
-    right: -40px;
+    bottom: 8px;
+    right: -20px;
   }
 
   .pill-2 {
     width: 120px;
     height: 32px;
     transform: rotate(-39.52deg);
-    bottom: 10px;
-    right: -10px;
+    bottom: 30px;
+    right: 0px;
   }
 
   .pill-3 { display: none; }
