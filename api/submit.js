@@ -2,8 +2,9 @@ const HS_PORTAL_ID = '245182131'
 const HS_FORM_GUID = 'c13a33fe-2545-45ef-bc12-77b30a86a658'
 
 const EJS_SERVICE_ID  = 'service_8uzw121'
-const EJS_TEMPLATE_ID = 'template_ybuhvu8'
+const EJS_TEMPLATE_ID = 'template_uwx9hj5'
 const EJS_PUBLIC_KEY  = 'sn_5VxRjAqHj40M9X'
+const EJS_PRIVATE_KEY = 'h2jTQlbHQNKiKoCGQbCYx'
 
 const PAIN_FLAGS = {
   duplicate: {
@@ -137,6 +138,7 @@ export default async function handler(req, res) {
         service_id:  EJS_SERVICE_ID,
         template_id: EJS_TEMPLATE_ID,
         user_id:     EJS_PUBLIC_KEY,
+        accessToken: EJS_PRIVATE_KEY,
         template_params: {
           to_email:           email,
           role,
