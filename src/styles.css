@@ -71,7 +71,7 @@ body {
 
 .pill {
   position: absolute;
-  width: 220px;
+  width: 276px;
   height: 52px;
   border-radius: 100px;
   background: linear-gradient(89.12deg, var(--pill-color) 12.37%, var(--pill-color-0) 46.99%);
@@ -87,23 +87,23 @@ body {
 }
 
 .pill-1 {
-  bottom: 26%;
-  right: -4%;
+  left: 89px;
+  bottom: 185px;
 }
 
 .pill-2 {
-  bottom: 18%;
-  right: 4%;
+  left: 167px;
+  bottom: 185px;
 }
 
 .pill-3 {
-  bottom: 10%;
-  right: -8%;
+  left: 155px;
+  bottom: 105px;
 }
 
 .pill-4 {
-  bottom: 2%;
-  right: 2%;
+  left: 222px;
+  bottom: 105px;
 }
 
 .left-inner {
