@@ -10,6 +10,7 @@
   --pill-mid:            rgba(221,242,204,0.18);
   --pill-outer:          rgba(221,242,204,0);
   --pill-color:          rgba(217,245,96,0.72);
+  --pill-color-0:        rgba(217,245,96,0);
   --swatch-coast-ring:   rgba(247,247,245,0.6);
 }
 
@@ -24,6 +25,7 @@
   --pill-mid:            rgba(120,97,255,0.2);
   --pill-outer:          rgba(120,97,255,0);
   --pill-color:          rgba(120,97,255,0.8);
+  --pill-color-0:        rgba(120,97,255,0);
 }
 
 /* ── Reset & base ── */
@@ -69,41 +71,39 @@ body {
 
 .pill {
   position: absolute;
-  width: 52px;
-  height: 260px;
+  width: 276px;
+  height: 52px;
   border-radius: 100px;
-  transform: rotate(45deg);
+  background: linear-gradient(89.12deg, var(--pill-color) 12.37%, var(--pill-color-0) 46.99%);
   transition: background 0.5s ease;
 }
 
-/* Comet head at upper-right, tail fades to lower-left */
 .pill-1, .pill-3 {
-  background: linear-gradient(to bottom, transparent 0%, var(--pill-color) 35%, var(--pill-color) 100%);
+  transform: rotate(140.48deg);
 }
 
-/* Comet head at lower-left, tail fades to upper-right */
 .pill-2, .pill-4 {
-  background: linear-gradient(to top, transparent 0%, var(--pill-color) 35%, var(--pill-color) 100%);
+  transform: rotate(-39.52deg);
 }
 
 .pill-1 {
   bottom: 32%;
-  right: 3%;
+  right: -6%;
 }
 
 .pill-2 {
-  bottom: 21%;
-  right: 14%;
+  bottom: 22%;
+  right: 4%;
 }
 
 .pill-3 {
-  bottom: 10%;
-  right: 25%;
+  bottom: 8%;
+  right: -12%;
 }
 
 .pill-4 {
-  bottom: -1%;
-  right: 36%;
+  bottom: -2%;
+  right: 2%;
 }
 
 .left-inner {
@@ -927,32 +927,23 @@ body {
   .left-copy-block { display: none; }
 
   .pill-1 {
-    width: 22px;
-    height: 100px;
-    bottom: 20px;
-    right: 12px;
+    width: 160px;
+    height: 32px;
+    transform: rotate(140.48deg);
+    bottom: 0px;
+    right: -40px;
   }
 
   .pill-2 {
-    width: 22px;
-    height: 100px;
-    bottom: 8px;
-    right: 40px;
+    width: 160px;
+    height: 32px;
+    transform: rotate(-39.52deg);
+    bottom: 10px;
+    right: -10px;
   }
 
-  .pill-3 {
-    width: 22px;
-    height: 100px;
-    bottom: -8px;
-    right: -4px;
-  }
-
-  .pill-4 {
-    width: 22px;
-    height: 100px;
-    bottom: -20px;
-    right: 24px;
-  }
+  .pill-3 { display: none; }
+  .pill-4 { display: none; }
 
   .theme-toggle { margin-top: 0; }
 
