@@ -13,7 +13,7 @@ const LEFT_COPY = [
   { headline: 'On a $15M loan at 7%, every day without funding costs $2,877 in interest carry. Portfolio size determines how fast that adds up.', sub: null },
   { headline: 'Relay customers cut draw cycles from 22 days to 9 days. The difference is process, not people.', sub: null },
   { headline: 'One point of failure is one missed lien waiver away from a stalled sale or refi.', sub: null },
-  { headline: 'GCs routinely send the same invoice twice — or slightly reword it. Most teams catch it after funding, if at all.', sub: null },
+  { headline: 'GCs routinely send the same invoice twice, or employees submit the same invoice multiple times to the lender. Most teams catch it after funding, if at all.', sub: null },
   { headline: 'One Asset Manager can manage 11 active projects instead of 5 — without adding headcount.', sub: null },
   { headline: 'Hundreds of invoices a month creates room for mistakes. A single missed duplicate means paying for the same work twice.', sub: null },
 ]
