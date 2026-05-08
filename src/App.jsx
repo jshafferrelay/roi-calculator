@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import {
-  QUESTIONS, PAIN_FLAGS, DEDICATED_FLAGS,
+  QUESTIONS, PAIN_FLAGS,
   calcROI, fmt, validateEmail
 } from './data.js'
 import './styles.css'
@@ -9,13 +9,13 @@ const TOTAL_STEPS = QUESTIONS.length
 
 const LEFT_COPY = [
   { headline: 'Is your draw process working for you or against you?', sub: 'A 2-minute diagnostic built for operators who\'ve actually run draws.' },
-  { headline: 'How we frame your results depends on your seat at the table.', sub: null },
-  { headline: 'On a $15M loan, every day without funding costs $2,877 in interest carry.\nPortfolio size determines how much that adds up to.', sub: null },
-  { headline: 'Relay customers cut draw cycles from 22 days to 9 days.\nThe difference is process, not people.', sub: null },
-  { headline: 'One point of failure is one missed lien waiver away from a frozen close.', sub: null },
-  { headline: 'GCs routinely bill ahead of completion.\nMost teams don\'t have the data to catch it.', sub: null },
-  { headline: 'One AM can manage 11 active projects instead of 5 — without adding headcount.', sub: null },
-  { headline: 'At 3%, 500 invoices/month is 15 incidents.\nAt $5K avg, that\'s $75K sitting in your blind spot.', sub: null },
+  { headline: 'Draws look different depending on where you sit — but the cost lands on everyone.', sub: null },
+  { headline: 'On a $15M loan at 7%, every day without funding costs $2,877 in interest carry. Portfolio size determines how fast that adds up.', sub: null },
+  { headline: 'Relay customers cut draw cycles from 22 days to 9 days. The difference is process, not people.', sub: null },
+  { headline: 'One point of failure is one missed lien waiver away from a stalled sale or refi.', sub: null },
+  { headline: 'GCs routinely send the same invoice twice — or slightly reword it. Most teams catch it after funding, if at all.', sub: null },
+  { headline: 'One Asset Manager can manage 11 active projects instead of 5 — without adding headcount.', sub: null },
+  { headline: 'Hundreds of invoices a month creates room for mistakes. A single missed duplicate means paying for the same work twice.', sub: null },
 ]
 
 export default function App() {
@@ -56,13 +56,12 @@ export default function App() {
   }
 
   function canAdvance() {
-    if (currentQ?.id === 'pain') return true  // Q5 always advanceable — fallback handles the empty case
+    if (currentQ?.id === 'pain') return true
     if (isMulti) return (answers[currentQ.id] || []).length > 0
     return !!answers[currentQ.id]
   }
 
   function advance() {
-    // Q5 (index 4) with nothing selected: show fallback once, then allow through
     if (currentQ?.id === 'pain' && (answers.pain || []).length === 0) {
       if (!painNoneShown) {
         setPainNoneShown(true)
@@ -321,18 +320,18 @@ export default function App() {
                 </div>
 
                 <div className="metrics-row">
-                  <div className="metric-card">
+                  <div className="metric-card accent-coast">
                     <div className="metric-card-label">Monthly draw labor</div>
                     <div className="metric-card-value">${fmt(roi.monthlyLaborCost)}</div>
                     <div className="metric-card-sub">{roi.monthlyHours} hrs/mo tied up in draw assembly</div>
                   </div>
-                  <div className="metric-card">
+                  <div className="metric-card accent-glide">
                     <div className="metric-card-label">Delayed funding cost</div>
                     <div className="metric-card-value">${fmt(roi.monthlyDelayExposure)}</div>
                     <div className="metric-card-sub">21-day avg delay across {roi.numProperties} properties</div>
                   </div>
-                  <div className="metric-card">
-                    <div className="metric-card-label">Duplicate invoice risk</div>
+                  <div className="metric-card accent-surge">
+                    <div className="metric-card-label">Overbilling & duplicate invoice funding requests</div>
                     <div className="metric-card-value">${fmt(roi.duplicateExposure)}</div>
                     <div className="metric-card-sub">~{roi.duplicateCount} incidents/mo at $5K avg</div>
                   </div>
@@ -352,16 +351,6 @@ export default function App() {
                           <div className="flags-col-relay">{PAIN_FLAGS[p]?.copy}</div>
                         </div>
                       ))}
-                    </div>
-                  </div>
-                )}
-
-                {answers.dedicated && (
-                  <div className="report-section">
-                    <div className="section-label">Resource risk</div>
-                    <div className="resource-flag">
-                      <div className="flag-dot" />
-                      <p>{DEDICATED_FLAGS[answers.dedicated]}</p>
                     </div>
                   </div>
                 )}

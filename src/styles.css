@@ -667,11 +667,31 @@ body {
 }
 
 .metric-card {
-  background: #fff;
-  border: 1px solid #D3D1C7;
   border-radius: 10px;
   padding: 18px 16px;
+  border: none;
 }
+
+.metric-card.accent-coast {
+  background: #0A3126;
+}
+.metric-card.accent-coast .metric-card-label { color: rgba(247,247,245,0.55); }
+.metric-card.accent-coast .metric-card-value { color: #D9F560; }
+.metric-card.accent-coast .metric-card-sub   { color: rgba(247,247,245,0.45); }
+
+.metric-card.accent-glide {
+  background: #7861FF;
+}
+.metric-card.accent-glide .metric-card-label { color: rgba(247,247,245,0.65); }
+.metric-card.accent-glide .metric-card-value { color: #fff; }
+.metric-card.accent-glide .metric-card-sub   { color: rgba(247,247,245,0.55); }
+
+.metric-card.accent-surge {
+  background: #DDF2CC;
+}
+.metric-card.accent-surge .metric-card-label { color: #5F5E5A; }
+.metric-card.accent-surge .metric-card-value { color: #0A3126; }
+.metric-card.accent-surge .metric-card-sub   { color: #5F5E5A; }
 
 .metric-card-label {
   font-size: 11px;
@@ -750,9 +770,9 @@ body {
 .flags-grid {
   display: flex;
   flex-direction: column;
-  border: 1px solid #D3D1C7;
   border-radius: 10px;
   overflow: hidden;
+  border: 1.5px solid #0A3126;
 }
 
 .flags-grid-header {
@@ -761,16 +781,16 @@ body {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   padding: 10px 16px;
-  background: #F0EFE9;
-  color: #8A8880;
+  background: #0A3126;
+  color: rgba(247,247,245,0.6);
 }
 
 .flags-grid-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid #E8E6DF;
+  border-top: 1px solid #D3D1C7;
   font-size: 13px;
   font-weight: 300;
   line-height: 1.55;
@@ -779,15 +799,16 @@ body {
 .flags-col-today {
   padding: 14px 16px;
   color: #2C2C2A;
-  font-weight: 500;
+  font-weight: 600;
   background: #fff;
-  border-right: 1px solid #E8E6DF;
+  border-right: 1.5px solid #0A3126;
 }
 
 .flags-col-relay {
   padding: 14px 16px;
   color: #0A3126;
-  background: rgba(221, 242, 204, 0.35);
+  font-weight: 400;
+  background: #DDF2CC;
 }
 
 .report-cta {

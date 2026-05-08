@@ -58,7 +58,6 @@ export const QUESTIONS = [
       { value: 'partial', label: 'Lender partially funded a draw' },
       { value: 'late', label: 'Submitted a draw late or missed a cycle entirely' },
       { value: 'chase', label: 'Had to chase a vendor or GC for a missing document at the last minute' },
-      { value: 'overbilling', label: 'Suspected a GC or sub was billing ahead of completion but couldn\'t prove it' },
     ],
   },
   {
@@ -90,8 +89,8 @@ export const QUESTIONS = [
 
 export const PAIN_FLAGS = {
   duplicate: {
-    label: 'Duplicate invoices',
-    copy: 'Relay detects these before submission — not after funding.',
+    label: 'Duplicate invoice submissions',
+    copy: 'Relay flags duplicate invoice numbers and amounts before you submit — whether it\'s an internal mistake or a GC resubmission.',
   },
   kickback: {
     label: 'Servicer kickbacks',
@@ -116,10 +115,6 @@ export const PAIN_FLAGS = {
   chase: {
     label: 'Last-minute document chase',
     copy: "Relay's checklist flags missing items days before your deadline.",
-  },
-  overbilling: {
-    label: 'GC/sub overbilling',
-    copy: 'Relay tracks budget vs. verified completion, flagging draws that outpace the work.',
   },
 }
 
