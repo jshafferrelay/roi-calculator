@@ -236,7 +236,7 @@ export default function App() {
                   <div className="preview-metric accent-coast">
                     <div className="metric-label">Monthly draw labor</div>
                     <div className="metric-value">${fmt(roi.monthlyLaborCost)}</div>
-                    <div className="metric-sub">{roi.monthlyHours} hrs × $50/hr</div>
+                    <div className="metric-sub">{roi.monthlyHours} hrs/mo tied up in draw assembly</div>
                   </div>
                   <div className="preview-metric accent-glide">
                     <div className="metric-label">Delayed funding cost</div>
@@ -244,9 +244,9 @@ export default function App() {
                     <div className="metric-sub">21-day avg across {roi.numProperties} properties</div>
                   </div>
                   <div className="preview-metric accent-surge">
-                    <div className="metric-label">Duplicate invoice risk</div>
+                    <div className="metric-label">Overbilling & duplicate invoice funding requests</div>
                     <div className="metric-value">${fmt(roi.duplicateExposure)}</div>
-                    <div className="metric-sub">~{roi.duplicateCount} duplicates/mo at $5K avg</div>
+                    <div className="metric-sub">~{roi.duplicateCount} incidents/mo at $5K avg</div>
                   </div>
                 </div>
 
@@ -324,7 +324,7 @@ export default function App() {
                   <div className="metric-card">
                     <div className="metric-card-label">Monthly draw labor</div>
                     <div className="metric-card-value">${fmt(roi.monthlyLaborCost)}</div>
-                    <div className="metric-card-sub">{roi.monthlyHours} hrs × $50/hr blended AM cost</div>
+                    <div className="metric-card-sub">{roi.monthlyHours} hrs/mo tied up in draw assembly</div>
                   </div>
                   <div className="metric-card">
                     <div className="metric-card-label">Delayed funding cost</div>
@@ -334,7 +334,7 @@ export default function App() {
                   <div className="metric-card">
                     <div className="metric-card-label">Duplicate invoice risk</div>
                     <div className="metric-card-value">${fmt(roi.duplicateExposure)}</div>
-                    <div className="metric-card-sub">~{roi.duplicateCount} duplicates/mo at $5K avg</div>
+                    <div className="metric-card-sub">~{roi.duplicateCount} incidents/mo at $5K avg</div>
                   </div>
                 </div>
 
@@ -383,7 +383,7 @@ export default function App() {
                 </div>
 
                 <div className="report-footnote">
-                  * Estimates based on industry averages: $50/hr blended AM cost, 21-day avg draw delay on a $5M loan at 7% annual interest, 3% duplicate invoice rate, $5,000 avg invoice value. Actual figures vary by portfolio size and loan terms.
+                  * Estimates based on industry averages: $50/hr blended AM cost, 21-day avg draw delay on a $15M loan at 7% annual interest, 3% overbilling/duplicate rate, $5,000 avg invoice value. Actual figures vary by portfolio size and loan terms.
                 </div>
               </div>
             )}

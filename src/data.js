@@ -58,6 +58,7 @@ export const QUESTIONS = [
       { value: 'partial', label: 'Lender partially funded a draw' },
       { value: 'late', label: 'Submitted a draw late or missed a cycle entirely' },
       { value: 'chase', label: 'Had to chase a vendor or GC for a missing document at the last minute' },
+      { value: 'overbilling', label: 'Suspected a GC or sub was billing ahead of completion but couldn\'t prove it' },
     ],
   },
   {
@@ -116,13 +117,17 @@ export const PAIN_FLAGS = {
     label: 'Last-minute document chase',
     copy: "Relay's checklist flags missing items days before your deadline.",
   },
+  overbilling: {
+    label: 'GC/sub overbilling',
+    copy: 'Relay tracks budget vs. verified completion, flagging draws that outpace the work.',
+  },
 }
 
 export const DEDICATED_FLAGS = {
-  one: 'Single point of failure: if that person is out, your draws stop. Relay distributes the process to the platform.',
-  shared: 'Shared ownership without a system of record means things fall through. Relay is the single source of truth.',
-  adhoc: 'Ad hoc process: whoever runs the draw this cycle may not know what the last person did. Relay fixes that.',
-  me: "Owner-dependent: your time is too valuable for draw assembly. Relay handles the build — you review and approve.",
+  one: 'Single point of failure: if that person is out, your draws stop — and lien waiver deadlines don\'t wait. Relay distributes the process to the platform.',
+  shared: 'Shared ownership without a system of record means things fall through. Missed waivers create lien exposure. Relay is the single source of truth.',
+  adhoc: 'Ad hoc process: whoever runs the draw this cycle may not know what the last person did. That\'s how liens and missed deadlines happen. Relay fixes that.',
+  me: "Draw assembly is the highest-cost use of your time — and the highest lien risk when you're unavailable. Relay handles the build; you review and approve.",
 }
 
 export function calcROI(answers) {
@@ -139,7 +144,7 @@ export function calcROI(answers) {
   const monthlyHours = Math.round(hoursPerDraw * drawsPerMonth)
   const monthlyLaborCost = Math.round(monthlyHours * 50)
 
-  const delayPerProperty = 20100 // $5M loan at 7% annual = ~$958/day × 21-day avg delay
+  const delayPerProperty = 60411 // $15M loan at 7% annual = ~$2,877/day × 21-day avg delay
   const monthlyDelayExposure = Math.round(numProperties * delayPerProperty)
 
   const avgInvoiceValue = 5000
