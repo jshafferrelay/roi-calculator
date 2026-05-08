@@ -76,14 +76,8 @@ body {
   transition: background 0.5s ease;
 }
 
-/* Comet head at upper-right, tail fades to lower-left */
-.pill-1, .pill-3 {
-  background: linear-gradient(to bottom, var(--pill-color) 0%, transparent 50%);
-}
-
-/* Comet head at lower-left, tail fades to upper-right */
-.pill-2, .pill-4 {
-  background: linear-gradient(to top, var(--pill-color) 0%, transparent 50%);
+.pill-1, .pill-2, .pill-3, .pill-4 {
+  background: linear-gradient(to top, var(--pill-color) 0%, var(--pill-color) 15%, transparent 55%);
 }
 
 .pill-1 {
@@ -927,32 +921,27 @@ body {
   .left-copy-block { display: none; }
 
   .pill-1 {
-    width: 22px;
-    height: 100px;
-    bottom: -24px;
-    right: -18px;
+    width: 20px;
+    height: 80px;
+    transform: none;
+    top: 50%;
+    right: -8px;
+    bottom: auto;
+    translate: 0 -50%;
   }
 
   .pill-2 {
-    width: 22px;
-    height: 100px;
-    bottom: -2px;
-    right: 4px;
+    width: 20px;
+    height: 80px;
+    transform: none;
+    top: 50%;
+    right: 18px;
+    bottom: auto;
+    translate: 0 -50%;
   }
 
-  .pill-3 {
-    width: 22px;
-    height: 100px;
-    bottom: 20px;
-    right: 26px;
-  }
-
-  .pill-4 {
-    width: 22px;
-    height: 100px;
-    bottom: 42px;
-    right: 48px;
-  }
+  .pill-3 { display: none; }
+  .pill-4 { display: none; }
 
   .theme-toggle { margin-top: 0; }
 
