@@ -139,11 +139,11 @@ export function calcROI(answers) {
   const monthlyHours = Math.round(hoursPerDraw * drawsPerMonth)
   const monthlyLaborCost = Math.round(monthlyHours * 50)
 
-  const delayPerProperty = 4500
+  const delayPerProperty = 20100 // $5M loan at 7% annual = ~$958/day × 21-day avg delay
   const monthlyDelayExposure = Math.round(numProperties * delayPerProperty)
 
   const avgInvoiceValue = 5000
-  const duplicateRate = 0.015
+  const duplicateRate = 0.03
   const duplicateCount = Math.round(invoiceVolume * duplicateRate)
   const duplicateExposure = Math.round(duplicateCount * avgInvoiceValue)
 

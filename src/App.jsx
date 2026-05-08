@@ -241,7 +241,7 @@ export default function App() {
                   <div className="preview-metric accent-glide">
                     <div className="metric-label">Delayed funding cost</div>
                     <div className="metric-value">${fmt(roi.monthlyDelayExposure)}</div>
-                    <div className="metric-sub">5-day avg across {roi.numProperties} properties</div>
+                    <div className="metric-sub">21-day avg across {roi.numProperties} properties</div>
                   </div>
                   <div className="preview-metric accent-surge">
                     <div className="metric-label">Duplicate invoice risk</div>
@@ -329,7 +329,7 @@ export default function App() {
                   <div className="metric-card">
                     <div className="metric-card-label">Delayed funding cost</div>
                     <div className="metric-card-value">${fmt(roi.monthlyDelayExposure)}</div>
-                    <div className="metric-card-sub">5-day avg delay across {roi.numProperties} properties</div>
+                    <div className="metric-card-sub">21-day avg delay across {roi.numProperties} properties</div>
                   </div>
                   <div className="metric-card">
                     <div className="metric-card-label">Duplicate invoice risk</div>
@@ -383,7 +383,7 @@ export default function App() {
                 </div>
 
                 <div className="report-footnote">
-                  * Estimates based on industry averages: $50/hr blended AM cost, 5-day draw delay on a $5M loan at 7% annual interest, 1.5% duplicate invoice rate, $5,000 avg invoice value. Actual figures vary by portfolio size and loan terms.
+                  * Estimates based on industry averages: $50/hr blended AM cost, 21-day avg draw delay on a $5M loan at 7% annual interest, 3% duplicate invoice rate, $5,000 avg invoice value. Actual figures vary by portfolio size and loan terms.
                 </div>
               </div>
             )}

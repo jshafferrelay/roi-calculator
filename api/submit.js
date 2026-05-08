@@ -35,7 +35,7 @@ Process: ${answers.process}
 Ownership: ${answers.dedicated}
 
 Monthly draw labor: $${fmt(roi.monthlyLaborCost)} (${roi.monthlyHours} hrs)
-Delayed funding exposure: $${fmt(roi.monthlyDelayExposure)}
+Delayed funding exposure (21-day avg): $${fmt(roi.monthlyDelayExposure)}
 Duplicate invoice risk: $${fmt(roi.duplicateExposure)} (~${roi.duplicateCount}/mo)
 
 Pain points: ${painLines}
